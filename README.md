@@ -15,3 +15,6 @@ The ID can be spcified after the url like :
 `'/zone/4'`
 `'/allocation/2'`
 
+#### To do post requests in the rest framework UI :
+Pass the list as `"Rohit, Virat, Dhoni, Tendulkar"`
+
