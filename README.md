@@ -10,7 +10,7 @@ GET
 - `'/zone'`, fetches the list of all zones
 - `'/allocation'`, fetches the allocation details like zone, police assigned to that zone and the time slot<br>
 POST
-- `'/allocation'`
+`'/allocation'`
 ```
 {
         "zone": "Chandni Chowk",
