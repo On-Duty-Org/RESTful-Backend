@@ -9,6 +9,7 @@ GET
 - `'/police'` , fetches the list of all policemen
 - `'/zone'`, fetches the list of all zones
 - `'/allocation'`, fetches the allocation details like zone, police assigned to that zone and the time slot<br>
+
 POST
 `'/allocation'`
 ```
