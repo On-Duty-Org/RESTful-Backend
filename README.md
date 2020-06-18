@@ -11,7 +11,7 @@ The API can be viewed on : http://aman28.pythonanywhere.com/
 
 #### Note that, to fetch the details of the exact policeman / zone / allocation :
 The ID can be spcified after the url like :
-`/police/1`
-`/zone/4`
-`/allocation/2`
+`'/police/1'`
+`'/zone/4'`
+`'/allocation/2'`
 
