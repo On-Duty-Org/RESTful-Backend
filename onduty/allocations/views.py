@@ -4,10 +4,22 @@ from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from . models import allocations
 from . serializers import allocationsSerializer
+from .models import allocations
+from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView
+from .forms import AllocationForm
 
 # Create your views here.
+
+class allocationsCreateView(CreateView):
+    model = allocations
+    form_class = AllocationForm
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class allocation(APIView):  # inherits from an APIView
 	
