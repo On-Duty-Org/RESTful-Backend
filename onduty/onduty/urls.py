@@ -25,5 +25,7 @@ urlpatterns = [
     path('', include('allocations.urls')),
     path('admin/', admin.site.urls),
     path('allocation/', allocationviews.allocation.as_view()),	
+    path('policecount/', allocationviews.pcount.as_view()),
+    path('zonecount/', allocationviews.zcount.as_view()),
     path('allocation/<int:id>/', allocationviews.allocationbyid.as_view()),
 ]

@@ -9,6 +9,8 @@ from .models import allocations
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from .forms import AllocationForm, PoliceForm, ZoneForm
+from police.models import polices
+from zones.models import zones
 
 # Create your views here.
 
@@ -35,6 +37,44 @@ def dashboard(request):
         'z_form': z_form,
     }
     return render(request, 'allocations/allocations.html', context)
+
+
+class pcount(APIView):
+	
+	def get(self, request):
+		obj = allocations.objects.all()
+		li = []
+		for i in obj:
+			li.append(i.police.name)
+		li = set(li)
+		total_police = polices.objects.all().count()
+		unalloted_police = total_police-len(li)
+		alloted_police = len(li)
+		dict = {
+		'total_police': total_police,
+		'unalloted_police': unalloted_police,
+		'alloted_police': alloted_police,
+		}
+		return Response(dict)
+
+
+class zcount(APIView):
+	
+	def get(self, request):
+		obj = allocations.objects.all()
+		li = []
+		for i in obj:
+			li.append(i.zone.name)
+		li = set(li)
+		total_zones = zones.objects.all().count()
+		unalloted_zones = total_zones-len(li)
+		alloted_zones = len(li)
+		dict = {
+		'total_zones': total_zones,
+		'unalloted_zones': unalloted_zones,
+		'alloted_zones': alloted_zones,
+		}
+		return Response(dict)
 
 
 class allocation(APIView):  # inherits from an APIView
