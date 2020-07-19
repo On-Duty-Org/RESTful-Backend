@@ -2,6 +2,8 @@ from django import forms
 from django.forms import ModelForm
 
 from .models import allocations
+from police.models import polices
+from zones.models import zones
 
 
 class DateInput(forms.DateInput):
@@ -19,3 +21,16 @@ class AllocationForm(ModelForm):
             'date': DateInput(),
             'time': TimeInput(),
         }
+
+class PoliceForm(ModelForm):
+
+    class Meta:
+        model = polices
+        fields = ['name', 'rank']
+
+
+class ZoneForm(ModelForm):
+
+    class Meta:
+        model = zones
+        fields = ['name', 'priority', 'url']

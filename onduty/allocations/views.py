@@ -8,17 +8,33 @@ from . serializers import allocationsSerializer
 from .models import allocations
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
-from .forms import AllocationForm
+from .forms import AllocationForm, PoliceForm, ZoneForm
 
 # Create your views here.
 
-class allocationsCreateView(CreateView):
-    model = allocations
-    form_class = AllocationForm
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+def dashboard(request):
+    if request.method == 'POST':
+        a_form = AllocationForm(request.POST)
+        p_form = PoliceForm(request.POST)
+        z_form = ZoneForm(request.POST)
+        if a_form.is_valid():
+        	a_form.save()
+        if p_form.is_valid():
+        	p_form.save()
+        if z_form.is_valid():
+        	z_form.save()
+
+    a_form = AllocationForm()
+    p_form = PoliceForm()
+    z_form = ZoneForm()
+
+    context = {
+        'a_form': a_form,
+        'p_form': p_form,
+        'z_form': z_form,
+    }
+    return render(request, 'allocations/allocations.html', context)
 
 
 class allocation(APIView):  # inherits from an APIView
