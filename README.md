@@ -6,8 +6,8 @@ The API can be viewed on : http://aman28.pythonanywhere.com/
 ### API endpoints :
 GET
 - `'/'` , Default page, contains the landing page
-- `'/police'` , fetches the list of all policemen
-- `'/zone'`, fetches the list of all zones
+- `'/policecount'` , fetches the number of total, alloted and unalloted police
+- `'/zonecount'`, fetches the number of total, alloted and unalloted zones
 - `'/allocation'`, fetches the allocation details like zone, police assigned to that zone and the time slot<br>
 
 POST
@@ -33,8 +33,6 @@ RESPONSE
 ```
 #### Note that, to fetch the details of the exact policeman / zone / allocation :
 The ID can be spcified after the url like :
-`'/police/1'`
-`'/zone/4'`
 `'/allocation/2'`
 
 
