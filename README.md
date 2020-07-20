@@ -14,21 +14,21 @@ POST
 `'/allocation'`
 ```
 {
-        "zone": "Chandni Chowk",
-        "priority": "2",
-        "police_allotted": "'Aman', 'Ishank', 'Ramu', 'Rahul'",
-        "time_slot": "6-7 pm"
+        "zone_name": "North Delhi",
+        "police_name": "Aman",
+        "time": "14:34:00",
+        "date": "2020-07-25"
 }
 ```
 RESPONSE
 ```
 {
-    "id": 8,
-    "zone": "Chandni Chowk",
-    "priority": "2",
-    "police_allotted": "'Aman', 'Ishank', 'Ramu', 'Rahul'",
-    "date_posted": "2020-06-18T19:23:36.122904Z",
-    "time_slot": "6-7 pm"
+        "id": 6,
+        "zone_name": "North Delhi",
+        "police_name": "Aman",
+        "date_posted": "2020-07-16T09:01:26.637983Z",
+        "time": "14:34:00",
+        "date": "2020-07-25"
 }
 ```
 #### Note that, to fetch the details of the exact policeman / zone / allocation :
